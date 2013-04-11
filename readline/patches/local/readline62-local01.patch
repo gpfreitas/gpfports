@@ -1,0 +1,33 @@
+diff -ru readline-6.2/support/shobj-conf readline-6.2_patched/support/shobj-conf
+--- readline-6.2/support/shobj-conf	2012-10-06 18:18:52.000000000 -0700
++++ readline-6.2_patched/support/shobj-conf	2012-10-06 18:21:29.000000000 -0700
+@@ -163,13 +163,13 @@
+ 	
+ 	SHOBJ_CFLAGS='-fno-common'
+ 
+-	SHOBJ_LD='MACOSX_DEPLOYMENT_TARGET=10.3 ${CC}'
++	SHOBJ_LD='MACOSX_DEPLOYMENT_TARGET=10.8 ${CC}'
+ 
+ 	SHLIB_LIBVERSION='$(SHLIB_MAJOR)$(SHLIB_MINOR).$(SHLIB_LIBSUFF)'
+ 	SHLIB_LIBSUFF='dylib'
+ 
+-	SHOBJ_LDFLAGS='-dynamiclib -dynamic -undefined dynamic_lookup -arch_only `/usr/bin/arch`'
+-	SHLIB_XLDFLAGS='-dynamiclib -arch_only `/usr/bin/arch` -install_name $(libdir)/$@ -current_version $(SHLIB_MAJOR)$(SHLIB_MINOR) -compatibility_version $(SHLIB_MAJOR) -v'
++	SHOBJ_LDFLAGS='-dynamiclib -dynamic -undefined dynamic_lookup -arch_only `uname -m`'
++	SHLIB_XLDFLAGS='-dynamiclib -arch_only `uname -m` -install_name $(libdir)/$@ -current_version $(SHLIB_MAJOR)$(SHLIB_MINOR) -compatibility_version $(SHLIB_MAJOR) -v'
+ 
+ 	SHLIB_LIBS='-lncurses'	# see if -lcurses works on MacOS X 10.1 
+ 	;;
+@@ -187,10 +187,10 @@
+ 
+ 	case "${host_os}" in
+ 	darwin[789]*|darwin1[012]*)	SHOBJ_LDFLAGS=''
+-			SHLIB_XLDFLAGS='-dynamiclib -arch_only `/usr/bin/arch` -install_name $(libdir)/$@ -current_version $(SHLIB_MAJOR)$(SHLIB_MINOR) -compatibility_version $(SHLIB_MAJOR) -v'
++			SHLIB_XLDFLAGS='-dynamiclib -arch_only `uname -m` -install_name $(libdir)/$@ -current_version $(SHLIB_MAJOR)$(SHLIB_MINOR) -compatibility_version $(SHLIB_MAJOR) -v'
+ 			;;
+ 	*)		SHOBJ_LDFLAGS='-dynamic'
+-			SHLIB_XLDFLAGS='-arch_only `/usr/bin/arch` -install_name $(libdir)/$@ -current_version $(SHLIB_MAJOR)$(SHLIB_MINOR) -compatibility_version $(SHLIB_MAJOR) -v'
++			SHLIB_XLDFLAGS='-arch_only `uname -m` -install_name $(libdir)/$@ -current_version $(SHLIB_MAJOR)$(SHLIB_MINOR) -compatibility_version $(SHLIB_MAJOR) -v'
+ 			;;
+ 	esac
+ 

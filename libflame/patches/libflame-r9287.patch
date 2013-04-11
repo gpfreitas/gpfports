@@ -1,0 +1,16 @@
+diff -ru libflame-r9287/docs/libflame/makefile libflame-r9287_patched/docs/libflame/makefile
+--- libflame-r9287/docs/libflame/makefile	2012-09-18 18:10:42.000000000 -0700
++++ libflame-r9287_patched/docs/libflame/makefile	2012-09-18 18:07:02.000000000 -0700
+@@ -5,9 +5,9 @@
+ 
+ DOC := libflame
+ 
+-PDFLATEX  := /lusr/bin/tex/pdflatex
+-BIBTEX    := /lusr/bin/tex/bibtex
+-MAKEINDEX := /lusr/bin/tex/makeindex
++PDFLATEX  := pdflatex
++BIBTEX    := bibtex
++MAKEINDEX := makeindex
+ 
+ all: pdf
+ 

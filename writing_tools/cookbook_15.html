@@ -1,0 +1,1599 @@
+<HTML>
+<HEAD>
+<!-- Created by texi2html 1.56k-cookbook from cookbook.texinfo on 9 January 2002 -->
+
+<TITLE>The Linux Cookbook: Tips and Techniques for Everyday Use - Grammar and Reference</TITLE>
+</HEAD>
+<BODY>
+
+<p><hr><p>
+
+<table><tr><td align=left>
+[<A HREF="cookbook_14.html">&lt;--</A>] [<A HREF="/cookbook/">Cover</A>] [<A HREF="cookbook_toc.html">Table of Contents</A>] [<A HREF="cookbook_45.html">Concept Index</A>] [<A HREF="cookbook_44.html">Program Index</A>] [<A HREF="cookbook_16.html">--&gt;</A>]
+<td>
+<!-- SiteSearch Google -->
+<form method="get" action="http://www.google.com/custom" target="_top">
+<table border="0" bgcolor="#ffffff">
+<tr><td nowrap="nowrap" valign="top" align="left" height="32">
+<a href="http://www.google.com/">
+<img src="http://www.google.com/logos/Logo_25wht.gif"
+border="0" alt="Google"></img></a>
+</td>
+<td nowrap="nowrap">
+<input type="hidden" name="domains" value="dsl.org"></input>
+<input type="text" name="q" size="31" maxlength="255" value=""></input>
+<input type="submit" name="sa" value="Search"></input>
+</td></tr>
+<tr>
+<td>&nbsp;</td>
+<td nowrap="nowrap">
+<table>
+<tr>
+<td>
+<input type="radio" name="sitesearch" value=""></input>
+<font size="-1" color="#000000">Web</font>
+</td>
+<td>
+<input type="radio" name="sitesearch" value="dsl.org" checked="checked"></input>
+<font size="-1" color="#000000">dsl.org</font>
+</td>
+</tr>
+</table>
+<input type="hidden" name="client" value="pub-7813958044863758"></input>
+<input type="hidden" name="forid" value="1"></input>
+<input type="hidden" name="ie" value="ISO-8859-1"></input>
+<input type="hidden" name="oe" value="ISO-8859-1"></input>
+<input type="hidden" name="cof" value="GALT:#008000;GL:1;DIV:#336699;VLC:663399;AH:center;BGC:FFFFFF;LBGC:336699;ALC:0000FF;LC:0000FF;T:000000;GFNT:0000FF;GIMP:0000FF;FORID:1;"></input>
+<input type="hidden" name="hl" value="en"></input>
+
+</td></tr></table>
+</form>
+<!-- SiteSearch Google -->
+</table>
+<P><HR><P>
+
+<script type="text/javascript"><!--
+google_ad_client = "pub-7813958044863758";
+google_ad_width = 728;
+google_ad_height = 90;
+google_ad_format = "728x90_as";
+google_ad_type = "text_image";
+google_ad_channel ="";
+google_color_border = "BBCCEE";
+google_color_bg = "EEEEEE";
+google_color_link = "0000FF";
+google_color_url = "BBCCEE";
+google_color_text = "000000";
+//--></script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+
+
+<H1><A NAME="SEC206" HREF="cookbook_toc.html#TOC206">Grammar and Reference</A></H1>
+<P>
+<A NAME="IDX925"></A>
+<A NAME="IDX926"></A>
+
+
+<P>
+The tools and resources for writing and editing on Linux-based systems
+include spell checkers, dictionaries, and reference files. This chapter
+shows methods for using them.
+
+
+
+<UL>
+<LI><A HREF="cookbook_15.html#SEC207">Spelling</A>: Spell checking.
+<LI><A HREF="cookbook_15.html#SEC213">Dictionaries</A>: Dictionaries.
+<LI><A HREF="cookbook_15.html#SEC220">Checking Grammar</A>: Grammar tools.
+<LI><A HREF="cookbook_15.html#SEC226">Reference Files</A>: Word lists and reference files.
+</UL>
+
+
+
+<H2><A NAME="SEC207" HREF="cookbook_toc.html#TOC207">Spelling</A></H2>
+<P>
+<A NAME="IDX927"></A>
+<A NAME="IDX928"></A>
+
+
+<P>
+There are several ways to spell check text and files on Linux; the
+following recipes show how to find the correct spellings of particular
+words and how to perform batch, interactive, and Emacs-based spell
+checks.
+
+
+<P>
+The system dictionary file, <TT>`/usr/dict/words'</TT>,<A NAME="DOCF18" HREF="cookbook_foot.html#FOOT18">(18)</A> is nothing more than a word
+list (albeit a very large one), sorted in alphabetical order and
+containing one word per line. Words that are correct regardless of case
+are listed in lowercase letters, and words that rely on some form of
+capitalization in order to be correct (such as proper nouns) appear in
+that form. All of the Linux spelling tools use this text file to check
+spelling; if a word does not appear in the dictionary file, it is
+considered to be misspelled.
+
+
+<P>
+<STRONG>NOTE:</STRONG> None of the computerized spell-check tools will correct
+your writing if you are using the wrong word to begin with -- for
+example, if you have <SAMP>`there'</SAMP> when you mean <SAMP>`their'</SAMP>, the
+computer will not catch it (yet!).
+
+
+
+<UL>
+<LI><A HREF="cookbook_15.html#SEC208">Word Spell</A>: Spell checking a word.
+<LI><A HREF="cookbook_15.html#SEC209">File Spell</A>: Spell checking a file.
+<LI><A HREF="cookbook_15.html#SEC210">Personal Dictionary</A>: Keeping a personal dictionary.
+<LI><A HREF="cookbook_15.html#SEC211">Ispell</A>: Interactive spell checking.
+<LI><A HREF="cookbook_15.html#SEC212">Emacs Spelling</A>: Spell checking in Emacs.
+</UL>
+
+
+<script type="text/javascript"><!--
+google_ad_client = "pub-7813958044863758";
+google_ad_width = 728;
+google_ad_height = 15;
+google_ad_format = "728x15_0ads_al";
+google_ad_channel ="";
+google_color_border = "BBCCEE";
+google_color_bg = "EEEEEE";
+google_color_link = "0000FF";
+google_color_url = "BBCCEE";
+google_color_text = "000000";
+//--></script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+
+<H3><A NAME="SEC208" HREF="cookbook_toc.html#TOC208">Finding the Correct Spelling of a Word</A></H3>
+<P>
+<A NAME="IDX929"></A>
+<A NAME="IDX930"></A>
+<A NAME="IDX931"></A>
+
+
+<P>
+If you're unsure whether or not you're using the correct spelling of a
+word, use <CODE>spell</CODE> to find out. <CODE>spell</CODE> reads from the standard
+input and outputs any words not found in the system dictionary -- so if a
+word is misspelled, it will be echoed back on the screen after you type
+it.
+
+
+
+<UL>
+<LI>
+
+For example, to check whether the word <SAMP>`occurance'</SAMP> is misspelled, type:
+
+
+<PRE>
+
+<hr>
+$ <I>spell [RET]
+occurance [RET]</I>
+occurance
+<I>C-d</I>
+$
+<hr>
+
+</PRE>
+
+</UL>
+
+<P>
+In the example, <CODE>spell</CODE> echoed the word <SAMP>`occurance'</SAMP>, meaning
+that this word was not in the system dictionary and therefore was quite
+likely a misspelling. Then, <I>C-d</I> was typed to exit <CODE>spell</CODE>.
+
+
+
+
+<H3><A NAME="SEC209" HREF="cookbook_toc.html#TOC209">Listing the Misspellings in a Text</A></H3>
+<P>
+<A NAME="IDX932"></A>
+<A NAME="IDX933"></A>
+<A NAME="IDX934"></A>
+<A NAME="IDX935"></A>
+<A NAME="IDX936"></A>
+<A NAME="IDX937"></A>
+
+
+<P>
+To output a list of misspelled words in a file, give the name of the
+file to check as an argument to <CODE>spell</CODE>. Any misspelled words in
+the file are output, each on a line of its own and in the order that
+they appear in the file.
+
+
+
+<UL>
+<LI>
+
+To spell check the file <TT>`fall-lecture.draft'</TT>, type:
+
+
+<PRE>
+
+<hr>
+$ <I>spell fall-lecture.draft [RET]
+occurance
+willl
+occurance</I>
+$
+<hr>
+
+</PRE>
+
+</UL>
+
+<P>
+In this example, three words are output: <SAMP>`occurance'</SAMP>, <SAMP>`willl'</SAMP>
+and <SAMP>`occurance'</SAMP> again, meaning that these three words were found in
+<TT>`fall-lecture.draft'</TT>, in that order, and were not in the system
+dictionary (and so were probably misspelled). Note that the misspelling
+<SAMP>`occurance'</SAMP> appears twice in the file.
+
+
+<P>
+To correct the misspellings, you could then open the file in your
+preferred text editor and edit it. Later in this section I'll describe
+an interactive spell checker that allows you to correct misspellings as
+they are found. Still another option is to use a text editor with
+spell-checking facilities built in, such as Emacs.
+
+
+
+<UL>
+<LI>
+
+To spell check the file <TT>`fall-lecture.draft'</TT>, and output any
+possibly misspelled words to a file <TT>`fall-lecture.spelling'</TT>, type:
+
+
+<PRE>
+$ <I>spell fall-lecture.draft &#62; fall-lecture.spelling [RET]</I>
+</PRE>
+
+</UL>
+
+<P>
+In this example, the standard output redirection character, <SAMP>`&#62;'</SAMP>, is
+used to redirect the output to a file (see <A HREF="cookbook_5.html#SEC56">Redirecting Output to a File</A>).
+
+
+<P>
+To output an <EM>alphabetical</EM> list of the misspelled words, pipe the
+output to <CODE>sort</CODE>; then pipe the sorted output to the <CODE>uniq</CODE>
+filter to remove duplicates from the list (<CODE>uniq</CODE> removes duplicate
+adjacent lines from its input, outputting the "unique" lines).
+
+
+
+<UL>
+<LI>
+
+To output a sorted list of the misspelled words that are in the file
+<TT>`fall-lecture.draft'</TT>, type:
+
+
+<PRE>
+$ <I>spell fall-lecture.draft | sort | uniq [RET]</I>
+</PRE>
+
+</UL>
+
+
+
+<H3><A NAME="SEC210" HREF="cookbook_toc.html#TOC210">Keeping a Spelling Word List</A></H3>
+<P>
+<A NAME="IDX938"></A>
+<A NAME="IDX939"></A>
+<A NAME="IDX940"></A>
+<A NAME="IDX941"></A>
+<A NAME="IDX942"></A>
+<A NAME="IDX943"></A>
+<A NAME="IDX944"></A>
+
+
+<P>
+The stock American English dictionary installed with Linux-based systems
+includes over 45,000 words. However large that number may seem, a lot of
+words are invariably left out -- including slang, jargon, and some proper
+names.
+
+
+<P>
+You can view the system dictionary as you would any other text file, but
+users never edit this file to add words to it.<A NAME="DOCF19" HREF="cookbook_foot.html#FOOT19">(19)</A> Instead, you add new words to
+your own <EM>personal dictionary</EM>, a file in the same format as the
+system dictionary, but kept in your home directory as the file
+<TT>`~/.ispell_default'</TT>.
+
+
+<P>
+Users can have their own personal dictionary; the spelling commands
+discussed in this chapter automatically use your personal dictionary, if
+you have one, in addition to the system dictionary.
+
+
+<P>
+You build your personal dictionary using the <I>i</I>
+and <I>u</I> options of <CODE>ispell</CODE>, which insert words into your
+personal dictionary. Use these options either with the stand-alone tool
+or with the various <CODE>ispell</CODE> Emacs functions (see <A HREF="cookbook_15.html#SEC211">Interactive Spell Checking</A> and <A HREF="cookbook_15.html#SEC212">Spell Checking in Emacs</A>).
+
+
+<P>
+<STRONG>NOTE:</STRONG> You can also add (or remove) words by manually editing
+the file with a text editor, but take care so that the list is kept in
+alphabetical order!
+
+
+<P>
+Over time, personal dictionaries begin to look very personal, as a
+reflection of their owners; Gregory Cosmo Haun made a work of art by
+photographing the portraits of a dozen users superimposed with listings
+of their personal dictionaries (accessible online at
+<A HREF="http://www.reed.edu/~cosmo/art/DictPort.html">http://www.reed.edu/~cosmo/art/DictPort.html</A>).
+
+
+
+
+<H3><A NAME="SEC211" HREF="cookbook_toc.html#TOC211">Interactive Spell Checking</A></H3>
+<P>
+<A NAME="IDX945"></A>
+<A NAME="IDX946"></A>
+<A NAME="IDX947"></A>
+
+
+<P>
+Use <CODE>ispell</CODE> to spell check a file <EM>interactively</EM>, so that
+every time a misspelling is found, you're given a chance to replace it
+then and there.
+
+
+
+<UL>
+<LI>
+
+To interactively spell check <TT>`fall-lecture.notes'</TT>, type:
+
+
+<PRE>
+$ <I>ispell fall-lecture.notes [RET]</I>
+</PRE>
+
+</UL>
+
+<P>
+When you type this, <CODE>ispell</CODE> begins checking the file. It stops at
+the first misspelling it finds:
+
+
+
+<hr>
+<IMG SRC="grammar-ispell-01.jpg" ALT="grammar-ispell-01" WIDTH="483" HEIGHT="315"><hr>
+
+<P>
+On the top line of the screen, <CODE>ispell</CODE> displays the misspelled
+word, followed by the name of the file. Underneath this is the sentence
+in which the misspelling appears, with the word in question
+highlighted. Following this is a list of suggested words, each offset by
+a number -- in this example, <CODE>ispell</CODE> has only one suggestion:
+<SAMP>`lectures'</SAMP>.
+
+
+<P>
+To replace a misspelling with a suggested word, type the number that
+corresponds to the suggested word (in this example, you would type
+<I>0</I> to replace the misspelling with <SAMP>`lectures'</SAMP>). You only need
+to type the number of your selection -- a [RET] is not required.
+
+
+<P>
+You can also type a correction yourself; this is useful when
+<CODE>ispell</CODE> either offers no suggestions, or when it does and the word
+you want is not one of them. To do this, type <I>r</I> (for "replace")
+and then type the replacement word, followed by [RET].
+
+
+<P>
+Sometimes, <CODE>ispell</CODE> will question a word that you may not want to
+count as a misspelling, such as proper names and the like -- words that
+don't appear in the system dictionary. There are a few things you can do
+in such cases, as follows.
+
+
+<P>
+To accept a misspelled word as correct for the current <CODE>ispell</CODE>
+session only, type <I>a</I>; from then on during the current session,
+this word will be considered correct.
+
+
+<P>
+If, however, you want <CODE>ispell</CODE> (and <CODE>spell</CODE>, and all other
+tools that access the system dictionary) to remember this word as being
+correct for this and all future sessions, insert the word in your own
+personal dictionary. Type <I>u</I> to insert a copy of the word
+<EM>uncapitalized</EM>, in all lowercase letters -- this way, even if the
+word is capitalized at the beginning of a sentence, the lowercase
+version of the word is saved. From then on, in the current <CODE>ispell</CODE>
+session and in future sessions, this word, regardless of case, will be
+considered correct.
+
+
+<P>
+When case is important to the spelling -- for example, in a word that is
+a proper name such as <SAMP>`Seattle'</SAMP>, or a word with mixed case, such as
+<SAMP>`LaTeX'</SAMP>---type <I>i</I> to insert a copy of the word in your
+personal dictionary with its case <EM>just as it appears</EM>; this way,
+words spelled with the same letters but with different case will be
+considered misspellings.
+
+
+<P>
+When <CODE>ispell</CODE> finishes spell checking a file, it saves its changes
+to the file and then exits. It also makes a copy of the original file,
+without the changes applied; this file has the same name as the original
+but with <TT>`.bak'</TT> added to the end -- so in our example, the backup
+file is called <TT>`fall-lecture.notes.bak'</TT>. This is useful if you
+regret the changes you've made and want to restore the file to how it
+was before you mucked it up -- just remove the spell-checked file and
+then rename the <TT>`.bak'</TT> file to its original name.
+
+
+<P>
+The following table is a reference to the <CODE>ispell</CODE> key commands.
+
+
+<TABLE border=0 cellpadding=4 align=center>
+
+<TR BGCOLOR="#EEEEEE"><TD>KEY</TD>
+
+</TD><TD> COMMAND
+</TR>
+<TR BGCOLOR="#bbccee"><TD>[SPC]</TD>
+
+</TD><TD> Accept misspelled word as correct, but only for this particular
+instance.
+
+<TR BGCOLOR="#EEEEEE"><TD><VAR>number</VAR></TD>
+
+</TD><TD> Replace the misspelled word with the suggestion that corresponds to
+the given number.
+
+</TR>
+<TR BGCOLOR="#bbccee"><TD><CODE>?</CODE></TD>
+
+</TD><TD> Display a help screen.
+
+<TR BGCOLOR="#EEEEEE"><TD><CODE>a</CODE></TD>
+
+</TD><TD> Accept misspelled word as correct for the remainder of this
+<CODE>ispell</CODE> session.
+
+</TR>
+<TR BGCOLOR="#bbccee"><TD><CODE>i</CODE></TD>
+
+</TD><TD> Accept misspelled word as correct and add it to your private
+dictionary with the capitalization as it appears.
+
+<TR BGCOLOR="#EEEEEE"><TD><CODE>l</CODE></TD>
+
+</TD><TD> Look up words in the system dictionary according to a pattern you
+then give.
+
+</TR>
+<TR BGCOLOR="#bbccee"><TD><CODE>q</CODE></TD>
+
+</TD><TD> Quit checking and restore the file to how it was before this
+session.
+
+<TR BGCOLOR="#EEEEEE"><TD><CODE>r</CODE></TD>
+
+</TD><TD> Replace misspelled word with a word you type.
+
+</TR>
+<TR BGCOLOR="#bbccee"><TD><CODE>u</CODE></TD>
+
+</TD><TD> Accept misspelled word as correct and add it to your private
+dictionary in all lowercase letters.
+
+<TR BGCOLOR="#EEEEEE"><TD><CODE>x</CODE></TD>
+
+</TD><TD> Save the changes thus made, and then stop checking this file.
+</TR></TABLE>
+
+
+
+<H3><A NAME="SEC212" HREF="cookbook_toc.html#TOC212">Spell Checking in Emacs</A></H3>
+<P>
+<A NAME="IDX948"></A>
+<A NAME="IDX949"></A>
+<A NAME="IDX950"></A>
+<A NAME="IDX951"></A>
+<A NAME="IDX952"></A>
+<A NAME="IDX953"></A>
+
+
+<P>
+Emacs has several useful commands for spell checking. The
+<CODE>ispell-word</CODE>, <CODE>ispell-region</CODE>, and <CODE>ispell-buffer</CODE>
+functions, as you might guess from their names, use the <CODE>ispell</CODE>
+command inside Emacs to check portions of the current buffer.
+
+
+<P>
+The first command, <CODE>ispell-word</CODE>, checks the spelling of the word
+at point; if there is no word at point, it checks the first word to the
+left of point. This command has a keyboard shortcut, <I>M-$</I>. The
+second command, <CODE>ispell-region</CODE>, checks the spelling of all words
+in the currently selected region of text. The third command,
+<CODE>ispell-buffer</CODE>, checks the spelling of the entire buffer.
+
+
+
+<UL>
+<LI>
+
+To check the spelling of the word at point, type:
+
+
+<PRE>
+<I>M-x ispell-word [RET]</I>
+</PRE>
+
+<LI>
+
+To check the spelling of all words in the currently selected region of
+text, type:
+
+
+<PRE>
+<I>M-x ispell-region [RET]</I>
+</PRE>
+
+<LI>
+
+To check the spelling of all words in the current buffer, type:
+
+
+<PRE>
+<I>M-x ispell-buffer [RET]</I>
+</PRE>
+
+</UL>
+
+<P>
+<CODE>Flyspell</CODE> mode is another useful Emacs spelling command that, when
+set in a buffer, highlights misspelled words. This function is useful
+when you are writing a first draft in a buffer, because it lets you
+catch misspellings as you type them.
+
+
+
+<UL>
+<LI>
+
+To turn on <CODE>Flyspell</CODE> mode in a buffer, type:
+
+
+<PRE>
+<I>M-x flyspell-mode [RET]</I>
+</PRE>
+
+</UL>
+
+<P>
+<STRONG>NOTE:</STRONG> This command is a toggle; run it again to turn it off.
+
+
+<P>
+To correct a word in <CODE>Flyspell</CODE> mode, click and release the middle
+mouse button on the word to pull up a menu of suggestions; you then use
+the mouse to select the replacement word or add it to your personal
+dictionary.
+
+
+<P>
+If there are words you frequently misspell, you can define abbrevs for
+them (see <A HREF="cookbook_14.html#SEC193">Making Abbreviations in Emacs</A>). Then, when you type the misspelled word, Emacs will
+automatically replace it with the correct spelling.
+
+
+<P>
+Finally, if you prefer the sparse, non-interactive interface of
+<CODE>spell</CODE>, you can use the Emacs interfaces to that command instead:
+<CODE>Spell word</CODE>, <CODE>Spell region</CODE>, and <CODE>Spell buffer</CODE>. When
+any of these commands find a misspelling, they prompt for a replacement
+in the minibuffer but do not offer suggestions or provide any of
+<CODE>ispell</CODE>'s other features.
+
+
+
+
+<H2><A NAME="SEC213" HREF="cookbook_toc.html#TOC213">Dictionaries</A></H2>
+<P>
+<A NAME="IDX954"></A>
+<A NAME="IDX955"></A>
+<A NAME="IDX956"></A>
+<A NAME="IDX957"></A>
+
+
+
+<PRE>
+<SMALL>Debian</SMALL>: <TT>`wordnet-dev'</TT>
+<SMALL>WWW</SMALL>: <A HREF="http://www.cogsci.princeton.edu/~wn/">http://www.cogsci.princeton.edu/~wn/</A>
+</PRE>
+
+<P>
+<BR>
+The term <EM>dictionary</EM> on Linux systems generally refers to one of
+two things: the traditional Unix-style dictionary, which is an
+alphabetically sorted word list containing no actual definitions, and
+the newer database-style dictionary that contains the headwords as well
+as their definitions. The latter is the kind of thing most people mean
+when they talk about dictionaries. (When most Unix folk talk about
+dictionaries, however, they almost always mean the former.)
+
+
+<P>
+WordNet is a lexical reference system in the form of a database
+containing thousands of words arranged in synonym sets. You can search
+the database and output the results in text with the <CODE>wn</CODE> tool or
+the <CODE>wnb</CODE> X client (the "WordNet browser").
+
+
+<P>
+Use of the X client is fairly straightforward -- type a word in the
+dialog box near the top of the screen, followed by [RET], to get its
+definition(s), which are displayed in the large output window underneath
+the dialog box.
+
+
+<P>
+For example, this is what appears when you do a search for the
+definition of the word <SAMP>`browse'</SAMP>:
+
+
+<P>
+<IMG SRC="grammar-wnb-01.jpg" ALT="grammar-wnb-01" WIDTH="602" HEIGHT="328">
+
+<P>
+Between the dialog box and the output window, there are menus for
+searching for synonyms and other word senses. A separate menu is given
+for each part of speech a word may have; in the preceding example, the
+word <SAMP>`browse'</SAMP> can be either a noun or a verb, so two menus are
+shown.
+
+
+<P>
+To get a list of all word sense information available for a given word,
+run <CODE>wn</CODE> with the name of the word as an argument. This outputs a
+list of all word sense information available for the word, with each
+possible sense preceded with the name of the option to use to output it.
+
+
+
+<UL>
+<LI>
+
+To output a list of word senses available for the word <SAMP>`browse'</SAMP>,
+type:
+
+
+<PRE>
+$ <I>wn browse [RET]</I>
+</PRE>
+
+</UL>
+
+<P>
+The following sections show how to use <CODE>wn</CODE> on the command line.
+
+
+<P>
+<STRONG>NOTE:</STRONG> For more information on WordNet, consult the
+<CODE>wnintro</CODE> <CODE>man</CODE> page (see <A HREF="cookbook_4.html#SEC45">Reading a Page from the System Manual</A>).
+
+
+
+<UL>
+<LI><A HREF="cookbook_15.html#SEC214">Word Lookup</A>: Listing words that match a pattern.
+<LI><A HREF="cookbook_15.html#SEC215">Definition Lookup</A>: Looking up a word's definition.
+<LI><A HREF="cookbook_15.html#SEC216">Synonym Lookup</A>: Finding Synonyms.
+<LI><A HREF="cookbook_15.html#SEC217">Antonym Lookup</A>: Finding Antonyms.
+<LI><A HREF="cookbook_15.html#SEC218">Hypernym Lookup</A>: Finding Hypernyms.
+<LI><A HREF="cookbook_15.html#SEC219">Online Dictionaries</A>: Free dictionaries on the WWW.
+</UL>
+
+
+
+<H3><A NAME="SEC214" HREF="cookbook_toc.html#TOC214">Listing Words that Match a Pattern</A></H3>
+<P>
+<A NAME="IDX958"></A>
+<A NAME="IDX959"></A>
+<A NAME="IDX960"></A>
+<A NAME="IDX961"></A>
+<A NAME="IDX962"></A>
+<A NAME="IDX963"></A>
+<A NAME="IDX964"></A>
+
+
+<P>
+There are several ways to search for and output words from the system
+dictionary.
+
+
+<P>
+Use <CODE>look</CODE> to output a list of words in the system dictionary that
+begin with a given string -- this is useful for finding words that begin
+with a particular phrase or prefix. Give the string as an argument; it
+is not case sensitive.
+
+
+
+<UL>
+<LI>
+
+To output a list of words from the dictionary that begin with the string
+<SAMP>`homew'</SAMP>, type:
+
+
+<PRE>
+$ <I>look homew [RET]</I>
+</PRE>
+
+</UL>
+
+<P>
+This command outputs words like <SAMP>`homeward'</SAMP> and <SAMP>`homework'</SAMP>.
+
+
+<P>
+Since the system dictionary is an ordinary text file, you can also use
+<CODE>grep</CODE> to search it for words that match a given pattern or regular
+expression (see <A HREF="cookbook_18.html#SEC263">Regular Expressions -- Matching Text Patterns</A>).
+
+
+
+<UL>
+<LI>
+
+To list all words in the dictionary that contain the string <SAMP>`dont'</SAMP>,
+regardless of case, type:
+
+
+<PRE>
+$ <I>grep -i dont /usr/dict/words [RET]</I>
+</PRE>
+
+<LI>
+
+To list all words in the dictionary that end with <SAMP>`ing'</SAMP>, type:
+
+
+<PRE>
+$ <I>grep ing^ /usr/dict/words [RET]</I>
+</PRE>
+
+<LI>
+
+To list all of the words that are composed only of vowels, type:
+
+
+<PRE>
+$ <I>grep -i '^[aeiou]*$' /usr/dict/words [RET]</I>
+</PRE>
+
+</UL>
+
+<P>
+To find some words that rhyme with a given word, use <CODE>grep</CODE> to
+search <TT>`/usr/dict/words'</TT> for words ending in the same last few
+characters as the word they should rhyme with (see <A HREF="cookbook_18.html#SEC265">Matching Lines Ending with Certain Text</A>).
+
+
+
+<UL>
+<LI>
+
+To output a list of words that rhyme with <SAMP>`friend'</SAMP>, search
+<TT>`/usr/dict/words'</TT> for lines ending with <SAMP>`end'</SAMP>:
+
+
+<PRE>
+$ <I>grep 'end$' /usr/dict/words [RET]</I>
+</PRE>
+
+</UL>
+
+<P>
+Finally, to do a search on the WordNet dictionary, use <CODE>wn</CODE> with
+one of the <SAMP>`-grep'</SAMP> options. When you give some text to search for
+as an argument, this command does the equivalent search as <CODE>look</CODE>,
+except only the particular kind of word sense you specify is searched:
+<SAMP>`-grepn'</SAMP> searches nouns, <SAMP>`-grepv'</SAMP> searches verbs,
+<SAMP>`-grepa'</SAMP> searches adjectives, and <SAMP>`-grepr'</SAMP> searches
+adverbs. You can combine options to search multiple word senses.
+
+
+
+<UL>
+<LI>
+
+To search the WordNet dictionary for nouns that begin with <SAMP>`homew'</SAMP>,
+type:
+
+
+<PRE>
+$ <I>wn homew -grepn [RET]</I>
+</PRE>
+
+<LI>
+
+To search the WordNet dictionary for both nouns and adjectives that
+begin with <SAMP>`homew'</SAMP>, type:
+
+
+<PRE>
+$ <I>wn homew -grepn -grepa [RET]</I>
+</PRE>
+
+</UL>
+
+
+
+<H3><A NAME="SEC215" HREF="cookbook_toc.html#TOC215">Listing the Definitions of a Word</A></H3>
+<P>
+<A NAME="IDX965"></A>
+<A NAME="IDX966"></A>
+<A NAME="IDX967"></A>
+<A NAME="IDX968"></A>
+
+
+<P>
+To list the definitions of a word, give the word as an argument to
+<CODE>wn</CODE>, followed by the <SAMP>`-over'</SAMP> option.
+
+
+
+<UL>
+<LI>
+
+To list the definitions of the word <SAMP>`slope'</SAMP>, type:
+
+
+<PRE>
+$ <I>wn slope -over [RET]</I>
+</PRE>
+
+</UL>
+
+
+
+<H3><A NAME="SEC216" HREF="cookbook_toc.html#TOC216">Listing the Synonyms of a Word</A></H3>
+<P>
+<A NAME="IDX969"></A>
+<A NAME="IDX970"></A>
+<A NAME="IDX971"></A>
+
+
+<P>
+A <EM>synonym</EM> of a word is a different word with a similar meaning
+that can be used in place of the first word in some context. To output
+synonyms for a word with <CODE>wn</CODE>, give the word as an argument,
+followed by one of the following options: <SAMP>`-synsn'</SAMP> for nouns,
+<SAMP>`-synsv'</SAMP> for verbs, <SAMP>`-synsa'</SAMP> for adjectives, and <SAMP>`-sysnr'</SAMP>
+for adverbs.
+
+
+
+<UL>
+<LI>
+
+To output all of the synonyms for the noun <SAMP>`break'</SAMP>, type:
+
+
+<PRE>
+$ <I>wn break -synsn [RET]</I>
+</PRE>
+
+<LI>
+
+To output all of the synonyms for the verb <SAMP>`break'</SAMP>, type:
+
+
+<PRE>
+$ <I>wn break -synsv [RET]</I>
+</PRE>
+
+</UL>
+
+
+
+<H3><A NAME="SEC217" HREF="cookbook_toc.html#TOC217">Listing the Antonyms of a Word</A></H3>
+<P>
+<A NAME="IDX972"></A>
+<A NAME="IDX973"></A>
+<A NAME="IDX974"></A>
+
+
+<P>
+An <EM>antonym</EM> of a word is a different word that has the opposite
+meaning of the first in some context. To output antonyms for a word with
+<CODE>wn</CODE>, give the word as an argument, followed by one the following
+options: <SAMP>`-antsv'</SAMP> for verbs, <SAMP>`-antsa'</SAMP> for adjectives, and
+<SAMP>`-antsr'</SAMP> for adverbs.
+
+
+
+<UL>
+<LI>
+
+To output all of the antonyms for the adjective <SAMP>`sad'</SAMP>, type:
+
+
+<PRE>
+$ <I>wn sad -antsa [RET]</I>
+</PRE>
+
+</UL>
+
+
+
+<H3><A NAME="SEC218" HREF="cookbook_toc.html#TOC218">Listing the Hypernyms of a Word</A></H3>
+<P>
+<A NAME="IDX975"></A>
+<A NAME="IDX976"></A>
+<A NAME="IDX977"></A>
+
+
+<P>
+A <EM>hypernym</EM> of a word is a related term whose meaning is more
+general than the given word. (For example, the words <SAMP>`mammal'</SAMP> and
+<SAMP>`animal'</SAMP> are hypernyms of the word <SAMP>`cat'</SAMP>.)
+
+
+<P>
+To output hypernyms for a word with <CODE>wn</CODE>, use one of the following
+options: <SAMP>`-hypen'</SAMP> for nouns and <SAMP>`-hypev'</SAMP> for verbs.
+
+
+
+<UL>
+<LI>
+
+To output all of the hypernyms for the noun <SAMP>`cat'</SAMP>, type:
+
+
+<PRE>
+$ <I>wn cat -hypen [RET]</I>
+</PRE>
+
+</UL>
+
+
+
+<H3><A NAME="SEC219" HREF="cookbook_toc.html#TOC219">Online Dictionaries</A></H3>
+<P>
+<A NAME="IDX978"></A>
+<A NAME="IDX979"></A>
+<A NAME="IDX980"></A>
+<A NAME="IDX981"></A>
+<A NAME="IDX982"></A>
+<A NAME="IDX983"></A>
+
+
+
+<PRE>
+<SMALL>Debian</SMALL> <TT>`dict'</TT>
+<SMALL>WWW</SMALL>: <A HREF="http://www.dict.org/">http://www.dict.org/</A>
+</PRE>
+
+<P>
+<BR>
+The DICT Development Group has a number of free dictionaries on their
+Web site at <A HREF="http://www.dict.org/">http://www.dict.org/</A>. On that page, you can look up
+the definitions of words (including thesaurus and other searches) from a
+dictionary that contains over 300,000 headwords, or make a copy of their
+dictionary for use on your own system. A <CODE>dict</CODE> client exists for
+accessing DICT servers and outputting definitions locally; this tool is
+available in the <TT>`dict'</TT> package.
+
+
+<P>
+DICT also has a number of specialized dictionaries that are plain text
+files (including the author's <CITE>Free Journalism Dictionary</CITE>,
+containing jargon and terms used in the journalism and publishing
+professions). Their <CITE>FILE</CITE> project, <CITE>The Free Internet Lexicon
+and Encyclopedia</CITE>, is an effort to build a free, open source collection
+of modern-word, idiom, and jargon dictionaries. FILE is a volunteer
+effort and depends on the support of scholars and lexicographers; the
+DICT pages contain information on how to help contribute to this worthy
+project.
+
+
+
+
+<H2><A NAME="SEC220" HREF="cookbook_toc.html#TOC220">Checking Grammar</A></H2>
+<P>
+<A NAME="IDX984"></A>
+<A NAME="IDX985"></A>
+<A NAME="IDX986"></A>
+<A NAME="IDX987"></A>
+<A NAME="IDX988"></A>
+<A NAME="IDX989"></A>
+<A NAME="IDX990"></A>
+<A NAME="IDX991"></A>
+<A NAME="IDX992"></A>
+<A NAME="IDX993"></A>
+
+
+
+<PRE>
+<SMALL>WWW</SMALL>: <A HREF="http://www.gnu.org/software/diction/diction.html">http://www.gnu.org/software/diction/diction.html</A>
+</PRE>
+
+<P>
+<BR>
+Two venerable Unix tools for checking writing have recently been made
+available for Linux-based systems: <CODE>style</CODE> and <CODE>diction</CODE>.
+
+
+<P>
+Old-timers probably remember these names -- the originals came with AT&#38;T
+UNIX as part of the much-loved "Writer's Workbench" (WWB) suite of
+tools back in the late 1970s and early 1980s.<A NAME="DOCF20" HREF="cookbook_foot.html#FOOT20">(20)</A>
+
+
+<P>
+AT&#38;T "unbundled" the Writer's Workbench from their UNIX version 7
+product, and as the many flavors of Unix blossomed over the years, these
+tools were lost by the wayside -- eventually becoming the stuff of Unix
+lore.
+
+
+<P>
+In 1997, Michael Haardt wrote new Linux versions of these tools from
+scratch. They support both the English and German languages, and
+they're now part of the GNU Project.
+
+
+<P>
+Two additional commands that were part of the Writer's Workbench have
+long been standard on Linux: <CODE>look</CODE> and <CODE>spell</CODE>, described
+previously in this chapter.
+
+
+
+<UL>
+<LI><A HREF="cookbook_15.html#SEC221">Diction</A>: Checking for misused phrases.
+<LI><A HREF="cookbook_15.html#SEC222">Doubled Words</A>: Checking for doubled words.
+<LI><A HREF="cookbook_15.html#SEC223">Writing Style</A>: Checking writing style.
+<LI><A HREF="cookbook_15.html#SEC224">Difficult Sentences</A>: Checking for difficult sentences.
+<LI><A HREF="cookbook_15.html#SEC225">Long Sentences</A>: Checking for long sentences.
+</UL>
+
+
+
+<H3><A NAME="SEC221" HREF="cookbook_toc.html#TOC221">Checking Text for Misused Phrases</A></H3>
+<P>
+<A NAME="IDX994"></A>
+<A NAME="IDX995"></A>
+<A NAME="IDX996"></A>
+<A NAME="IDX997"></A>
+<A NAME="IDX998"></A>
+<A NAME="IDX999"></A>
+<A NAME="IDX1000"></A>
+<A NAME="IDX1001"></A>
+<A NAME="IDX1002"></A>
+<A NAME="IDX1003"></A>
+<A NAME="IDX1004"></A>
+<A NAME="IDX1005"></A>
+
+
+<P>
+Use <CODE>diction</CODE> to check for wordy, trite, clich&eacute;d, or misused
+phrases in a text. It checks for all the kind of expressions William
+Strunk warned us about in his <A HREF="http://coba.shsu.edu/help/strunk/"><CITE>Elements of Style</CITE></A>.
+
+
+<P>
+According to <CITE>The UNIX Environment</CITE>, by Andrew Walker, the
+<CODE>diction</CODE> tool that came with the old Writer's Workbench just
+<EM>found</EM> the phrases, and a separate command called <CODE>suggest</CODE>
+would output suggestions. In the GNU version that works for Linux
+systems, both functions have been combined in the single <CODE>diction</CODE>
+command.
+
+
+<P>
+In GNU <CODE>diction</CODE>, the words or phrases are enclosed in brackets
+<SAMP>`[like this]'</SAMP>. If <CODE>diction</CODE> has any suggested replacements,
+it gives them preceded by a right arrow, <SAMP>`-&#62; like this'</SAMP>.
+
+
+<P>
+When checking more than just a screenful of text, you'll want to pipe
+the output to <CODE>less</CODE> so that you can peruse it on the screen
+(see <A HREF="cookbook_13.html#SEC175">Perusing Text</A>), or pipe the output to a file
+for later examination.
+
+
+
+<UL>
+<LI>
+
+To check file <TT>`dissertation'</TT> for clich&eacute;s or other misused
+phrases, type: 
+
+
+<PRE>
+$ <I>diction dissertation | less [RET]</I>
+</PRE>
+
+<LI>
+
+To check file <TT>`dissertation'</TT> for clich&eacute;s or other misused
+phrases, and write the output to a file called
+<TT>`dissertation.diction'</TT>, type: 
+
+
+<PRE>
+$ <I>diction dissertation &#62; dissertation.diction [RET]</I>
+</PRE>
+
+</UL>
+
+<P>
+If you don't specify a file name, <CODE>diction</CODE> reads text from the
+standard input until you type <I>C-d</I> on a line by itself. This is
+especially useful when you want to check a single sentence:
+
+
+
+<PRE>
+
+<hr>
+$ <I>diction [RET]</I>
+<I>Let us ask the question we wish to state. [RET]</I>
+(stdin):1: Let us [ask the question -&#62; ask]
+[we wish to state -&#62; (cliche, avoid)]. 
+<I>C-d</I>
+$
+<hr>
+
+</PRE>
+
+<P>
+To check the text of a Web page, use the text-only Web browser
+<CODE>lynx</CODE> with the <SAMP>`-dump'</SAMP> and <SAMP>`-nolist'</SAMP> options to output
+the plain text of a given URL, and pipe this output to <CODE>diction</CODE>.
+(If you expect there to be a lot of output, add another pipe at the end
+to <CODE>less</CODE> so you can peruse it.)
+
+
+
+<UL>
+To peruse a copy of the text of <A HREF="http://example.org/1.html">http://example.org/1.html</A> with
+markings for possible wordy and misused phrases, type:
+</UL>
+
+
+<PRE>
+$ <I>lynx -dump -nolist http://example.org/1.html | diction | less [RET]</I>
+</PRE>
+
+
+
+<H3><A NAME="SEC222" HREF="cookbook_toc.html#TOC222">Checking Text for Doubled Words</A></H3>
+<P>
+<A NAME="IDX1006"></A>
+<A NAME="IDX1007"></A>
+<A NAME="IDX1008"></A>
+<A NAME="IDX1009"></A>
+<A NAME="IDX1010"></A>
+<A NAME="IDX1011"></A>
+
+
+<P>
+One of the things that <CODE>diction</CODE> looks for is doubled words -- words
+repeated twice in a row. If it finds such a sequence, it encloses the
+second member of the doubled pair in brackets, followed by a right arrow
+and the text <SAMP>`Double word'</SAMP>, like <SAMP>`this [&#60;i&#62;this -&#62; Double
+word.]'</SAMP>.
+
+
+<P>
+To check a text file for doubled words <EM>only</EM>, and not for any of
+the other things <CODE>diction</CODE> checks, use <CODE>grep</CODE> to find only
+those lines in <CODE>diction</CODE>'s output that contain the text
+<SAMP>`Double word'</SAMP>, if any.
+
+
+
+<UL>
+<LI>
+
+To output all lines containing double words in the file
+<TT>`dissertation'</TT>, type:
+
+
+<PRE>
+$ <I>diction dissertation | grep 'Double word' [RET]</I>
+</PRE>
+
+</UL>
+
+
+
+<H3><A NAME="SEC223" HREF="cookbook_toc.html#TOC223">Checking Text for Readability</A></H3>
+<P>
+<A NAME="IDX1012"></A>
+<A NAME="IDX1013"></A>
+<A NAME="IDX1014"></A>
+<A NAME="IDX1015"></A>
+<A NAME="IDX1016"></A>
+
+
+<P>
+The <CODE>style</CODE> command analyzes the writing style of a given text. It
+performs a number of readability tests on the text and outputs their
+results, and it gives some statistical information about the sentences
+of the text. Give as an argument the name of the text file to check.
+
+
+
+<UL>
+<LI>
+
+To check the readability of the file <TT>`dissertation'</TT>, type:
+
+
+<PRE>
+$ <I>style dissertation [RET]</I>
+</PRE>
+
+</UL>
+
+<P>
+Like <CODE>diction</CODE>, <CODE>style</CODE> reads text from the standard input if
+no text is given -- this is useful for the end of a pipeline, or for
+checking the writing style of a particular sentence or other text you
+type.
+
+
+<P>
+The sentence characteristics of the text that <CODE>style</CODE> outputs are
+as follows:
+
+
+
+<UL>
+<LI>
+
+Number of characters
+
+<LI>
+
+Number of words, their average length, and their average number of
+syllables
+
+<LI>
+
+Number of sentences and average length in words
+
+<LI>
+
+Number of short and long sentences
+
+<LI>
+
+Number of paragraphs and average length in sentences
+
+<LI>
+
+Number of questions and imperatives
+</UL>
+
+<P>
+The various readability formulas that <CODE>style</CODE> uses and outputs are
+as follows:
+
+
+
+<UL>
+<LI>
+
+Kincaid formula, originally developed for Navy training manuals; a
+good readability for technical documentation
+
+<LI>
+
+Automated Readability Index (ARI)
+
+<LI>
+
+Coleman-Liau formula
+
+<LI>
+
+Flesch Reading Ease Score, which gives an approximation of readability
+from 0 (difficult) to 100 (easy)
+
+<LI>
+
+Fog Index, which gives a school-grade reading level
+
+<LI>
+
+WSTF Index, a readability indicator for German documents
+
+<LI>
+
+Wheeler-Smith Index, Lix formula, and SMOG-Grading tests, all
+readability indicators that give a school-grade reading level
+</UL>
+
+
+
+<H3><A NAME="SEC224" HREF="cookbook_toc.html#TOC224">Checking Text for Difficult Sentences</A></H3>
+<P>
+<A NAME="IDX1017"></A>
+<A NAME="IDX1018"></A>
+<A NAME="IDX1019"></A>
+<A NAME="IDX1020"></A>
+
+
+<P>
+To output just the "difficult" sentences of a text, use <CODE>style</CODE>
+with the <SAMP>`-r'</SAMP> option followed by a number; <CODE>style</CODE> will output
+only those sentences whose Automated Readability Index (ARI) is greater
+than the number you give.
+
+
+
+<UL>
+<LI>
+
+To output all sentences in the file <TT>`dissertation'</TT> whose
+ARI is greater than a value of 20, type: 
+
+
+<PRE>
+$ <I>style -r 20 dissertation [RET]</I>
+</PRE>
+
+</UL>
+
+
+
+<H3><A NAME="SEC225" HREF="cookbook_toc.html#TOC225">Checking Text for Long Sentences</A></H3>
+<P>
+<A NAME="IDX1021"></A>
+<A NAME="IDX1022"></A>
+<A NAME="IDX1023"></A>
+<A NAME="IDX1024"></A>
+
+
+<P>
+Use <CODE>style</CODE> to output sentences longer than a certain length by
+giving the minimum number of words as an argument to the <SAMP>`-l'</SAMP>
+option.
+
+
+
+<UL>
+<LI>
+
+To output all sentences longer than 14 words in the
+file <TT>`dissertation'</TT>, type:
+
+
+<PRE>
+$ <I>style -l 14 dissertation [RET]</I>
+</PRE>
+
+</UL>
+
+
+
+<H2><A NAME="SEC226" HREF="cookbook_toc.html#TOC226">Word Lists and Reference Files</A></H2>
+<P>
+<A NAME="IDX1025"></A>
+<A NAME="IDX1026"></A>
+<A NAME="IDX1027"></A>
+<A NAME="IDX1028"></A>
+<A NAME="IDX1029"></A>
+<A NAME="IDX1030"></A>
+<A NAME="IDX1031"></A>
+<A NAME="IDX1032"></A>
+<A NAME="IDX1033"></A>
+<A NAME="IDX1034"></A>
+
+
+
+<PRE>
+<SMALL>Debian</SMALL>: <TT>`miscfiles'</TT>
+<SMALL>WWW</SMALL>: <A HREF="ftp://ftp.gnu.org/pub/gnu/miscfiles/miscfiles-1.1.tar.gz">ftp://ftp.gnu.org/pub/gnu/miscfiles/miscfiles-1.1.tar.gz</A>
+</PRE>
+
+<P>
+<BR>
+The GNU Miscfiles are a collection of text files containing various
+facts and reference material, such as common abbreviations, telephone
+area codes, and English connective phrases. 
+
+
+<P>
+The files are stored in the <TT>`/usr/share/misc'</TT> directory, and they
+are all compressed; use <CODE>zless</CODE> to peruse them (see <A HREF="cookbook_13.html#SEC175">Perusing Text</A>).
+
+
+<P>
+The following table lists the files in <TT>`/usr/share/misc'</TT> and
+describes their contents.
+
+
+<TABLE border=0 cellpadding=4 align=center>
+
+<TR BGCOLOR="#EEEEEE"><TD>FILE</TD>
+
+</TD><TD> DESCRIPTION
+</TR>
+<TR BGCOLOR="#bbccee"><TD><CODE>GNU-manifesto.gz</CODE></TD>
+
+</TD><TD> The GNU Manifesto.
+
+<TR BGCOLOR="#EEEEEE"><TD><CODE>abbrevs.talk.gz</CODE> <CODE>abbrevs.gen.gz</CODE></TD>
+
+</TD><TD> Collections of common abbreviations used in electronic
+communication. (This is the place to look to find the secrets of
+<SAMP>`TTYL'</SAMP> and <SAMP>`LOL'</SAMP>.)
+
+</TR>
+<TR BGCOLOR="#bbccee"><TD><CODE>airport.gz</CODE></TD>
+
+</TD><TD> List of three-letter city codes for some of the major airports. The
+city code is useful for querying the National Weather Service computers
+to get the latest weather report for your region.
+
+<TR BGCOLOR="#EEEEEE"><TD><CODE>ascii.gz</CODE></TD>
+
+</TD><TD> A chart of the ASCII character set.
+
+</TR>
+<TR BGCOLOR="#bbccee"><TD><CODE>birthtoken.gz</CODE></TD>
+
+</TD><TD> The traditional stone and flower tokens for each month.
+
+<TR BGCOLOR="#EEEEEE"><TD><CODE>cities.dat.gz</CODE></TD>
+
+</TD><TD> The population, political coordinates (nation, region), and
+geographic coordinates (latitude, longitude) of many major cities.
+
+</TR>
+<TR BGCOLOR="#bbccee"><TD><CODE>inter.phone.gz</CODE></TD>
+
+</TD><TD> International country and city telephone codes.
+
+<TR BGCOLOR="#EEEEEE"><TD><CODE>languages.gz</CODE></TD>
+
+</TD><TD> Two-letter codes for languages, from ISO 639.
+
+</TR>
+<TR BGCOLOR="#bbccee"><TD><CODE>latin1.gz</CODE></TD>
+
+</TD><TD> A chart of the extended ASCII character set, also known as the ISO
+8859 ("Latin-1") character set.
+
+<TR BGCOLOR="#EEEEEE"><TD><CODE>mailinglists.gz</CODE></TD>
+
+</TD><TD> Description of all the public Project GNU-related mailing lists.
+
+</TR>
+<TR BGCOLOR="#bbccee"><TD><CODE>na.phone.gz</CODE></TD>
+
+</TD><TD> North American (+1) telephone area codes.
+
+<TR BGCOLOR="#EEEEEE"><TD><CODE>operator.gz</CODE></TD>
+
+</TD><TD> Precedence table for operators in the C language.
+
+</TR>
+<TR BGCOLOR="#bbccee"><TD><CODE>postal.codes.gz</CODE></TD>
+
+</TD><TD> Postal codes for U.S. and Mexican states and Canadian provinces.
+
+<TR BGCOLOR="#EEEEEE"><TD><CODE>us-constitution.gz</CODE></TD>
+
+</TD><TD> <CITE>The Constitution of the United States of America</CITE> (no
+<CITE>Bill of Rights</CITE>, though). (On Debian systems, this file is placed
+in <TT>`/usr/share/state'</TT>.)
+
+</TR>
+<TR BGCOLOR="#bbccee"><TD><CODE>us-declaration.gz</CODE></TD>
+
+</TD><TD> <CITE>The Declaration of Independence of the Thirteen
+Colonies</CITE>. (On Debian systems, this file is placed in
+<TT>`/usr/share/state'</TT>.)
+
+<TR BGCOLOR="#EEEEEE"><TD><CODE>rfc-index.txt</CODE></TD>
+
+</TD><TD> Indexes of Internet standardization Request For Comments (RFC)
+documents. (On Debian systems, this file is placed in
+<TT>`/usr/share/rfc'</TT>).
+
+</TR>
+<TR BGCOLOR="#bbccee"><TD><CODE>zipcodes.gz</CODE></TD>
+
+</TD><TD> U.S. five-digit Zip codes.
+</TR></TABLE>
+
+<TT>`miscfiles'</TT> is not the only reference package available for Debian
+systems, though; other related packages include the following:
+
+<TABLE border=0 cellpadding=4 align=center>
+
+<TR BGCOLOR="#EEEEEE"><TD>PACKAGE</TD>
+
+</TD><TD> DESCRIPTION
+</TR>
+<TR BGCOLOR="#bbccee"><TD><CODE>doc-iana</CODE></TD>
+
+</TD><TD> Internet protocol parameter registry documents, as published by the
+Internet Assigned Numbers Authority.
+
+<TR BGCOLOR="#EEEEEE"><TD><CODE>doc-rfc</CODE></TD>
+
+</TD><TD> A collection of important RFCs, stored in <TT>`/usr/share/rfc'</TT>.
+
+</TR>
+<TR BGCOLOR="#bbccee"><TD><CODE>jargon</CODE></TD>
+
+</TD><TD> The "Jargon file," which is the definitive dictionary of hacker
+slang.
+
+<TR BGCOLOR="#EEEEEE"><TD><CODE>vera</CODE></TD>
+
+</TD><TD> List of computer acronyms.
+</TR></TABLE>
+
+<STRONG>NOTE:</STRONG> The official GNU <CODE>miscfiles</CODE> distribution also
+includes the Jargon file and the <TT>`/usr/dict/words'</TT> dictionary file,
+which are available in separate packages for Debian, and are removed
+from the Debian <TT>`miscfiles'</TT> distribution. <TT>`/usr/dict/words'</TT> is
+part of the standard spelling packages, and the Jargon file comes in the
+optional <TT>`jargon'</TT> package, and installs in
+<TT>`/usr/share/jargon'</TT>.
+
+<p>
+<script type="text/javascript"><!--
+google_ad_client = "pub-7813958044863758";
+google_ad_width = 728;
+google_ad_height = 90;
+google_ad_format = "728x90_as";
+google_ad_type = "text_image";
+google_ad_channel ="";
+google_color_border = "BBCCEE";
+google_color_bg = "EEEEEE";
+google_color_link = "0000FF";
+google_color_url = "BBCCEE";
+google_color_text = "000000";
+//--></script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+<P><HR><P>
+[<A HREF="cookbook_14.html">&lt;--</A>] [<A HREF="/cookbook/">Cover</A>] [<A HREF="cookbook_toc.html">Table of Contents</A>] [<A HREF="cookbook_45.html">Concept Index</A>] [<A HREF="cookbook_44.html">Program Index</A>] [<A HREF="cookbook_16.html">--&gt;</A>]
+</BODY>
+</HTML>

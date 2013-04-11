@@ -1,0 +1,85 @@
+#=============================================================================
+# :Filename: dependency_graph.txt
+# :Author: Guilherme.freitas <guilherme@gpfreitas.net>
+#=============================================================================
+#
+# For every program you install, you should enter one line in this file for
+# each dependency. So, for example, if the program `mpc` depends on programs
+# `gmp` and `mpfr`, you should enter the lines
+#
+#     mpc gmp
+#     mpc mpfr
+#
+# You can use the `tsort` program to obtain an order of installation that will
+# not suffer from "missing dependency" problems.
+
+# No dependencies
+# ===============
+
+gfortran gfortran
+asl asl
+pardiso pardiso
+blas blas
+gmp gmp
+gsl gsl
+fftw fftw
+cmake cmake
+exiftool exiftool
+libunistring libunistring
+autoconf autoconf
+
+# One dependency
+# ==============
+
+python readline
+wget gnutls
+mpfr gmp
+lapack blas
+glpk gmp
+metis cmake
+tmux libevent
+libmatheval guile
+guile libunistring
+automake autoconf
+
+
+# Two dependencies
+# ================
+
+mpc gmp
+mpc mpfr 
+
+dsdp blas
+dsdp lapack
+
+# Three or more dependencies
+# ==========================
+
+gcc gmp
+gcc mpfr
+gcc mpc
+
+cvxopt blas
+cvxopt lapack
+cvxopt dsdp
+cvxopt fftw
+cvxopt glpk
+
+suitesparse metis
+suitesparse blas
+suitesparse lapack
+
+ipopt blas
+ipopt lapack
+ipopt ma27
+ipopt ma57
+ipopt mc19
+ipopt asl
+ipopt gfortran
+
+nlpy pysparse
+nlpy ma57
+nlpy libampl
+nlpy galahad
+nlpy icfs
+

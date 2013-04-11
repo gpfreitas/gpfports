@@ -1,0 +1,11 @@
+Mac OS X usually provides
+
+openssh
+openssl
+c compiler, make, etc. (Developer Tools, XCode, etc.)
+curl / libcurl
+Some version of Python/Perl/Ruby.
+
+
+If those are not present, you may have to install them by hand.
+

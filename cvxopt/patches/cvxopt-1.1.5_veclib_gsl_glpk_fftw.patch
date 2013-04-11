@@ -1,0 +1,64 @@
+diff -ru cvxopt-1.1.5/src/setup.py cvxopt-1.1.5_patched/src/setup.py
+--- cvxopt-1.1.5/src/setup.py	2012-03-27 13:05:13.000000000 -0700
++++ cvxopt-1.1.5_patched/src/setup.py	2012-10-07 11:50:59.000000000 -0700
+@@ -1,12 +1,16 @@
+ from distutils.core import setup, Extension
+ from glob import glob
++import os
++
++local_lib = os.path.join(os.environ['HOME'], 'lib')
++local_include = os.path.join(os.environ['HOME'], 'include')
+ 
+ # Modifiy this if BLAS and LAPACK libraries are not in /usr/lib.
+-BLAS_LIB_DIR = '/usr/lib'
++BLAS_LIB_DIR = '/System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A'
+ 
+ # Default names of BLAS and LAPACK libraries
+-BLAS_LIB = ['blas']
+-LAPACK_LIB = ['lapack']
++BLAS_LIB = ['BLAS']
++LAPACK_LIB = ['LAPACK']
+ BLAS_EXTRA_LINK_ARGS = []
+ 
+ # Set environment variable BLAS_NOUNDERSCORES=1 if your BLAS/LAPACK do
+@@ -15,31 +19,31 @@
+ 
+ # Set to 1 if you are using the random number generators in the GNU
+ # Scientific Library.
+-BUILD_GSL = 0
++BUILD_GSL = 1
+ 
+ # Directory containing libgsl (used only when BUILD_GSL = 1).
+-GSL_LIB_DIR = '/usr/lib'
++GSL_LIB_DIR = local_lib
+ 
+ # Directory containing the GSL header files (used only when BUILD_GSL = 1).
+-GSL_INC_DIR = '/usr/include/gsl'
++GSL_INC_DIR = os.path.join(local_include, 'gsl')
+ 
+ # Set to 1 if you are installing the fftw module.
+-BUILD_FFTW = 0 
++BUILD_FFTW = 1
+ 
+ # Directory containing libfftw3 (used only when BUILD_FFTW = 1).
+-FFTW_LIB_DIR = '/usr/lib'
++FFTW_LIB_DIR = local_lib
+ 
+ # Directory containing fftw.h (used only when BUILD_FFTW = 1).
+-FFTW_INC_DIR = '/usr/include'
++FFTW_INC_DIR = local_include
+ 
+ # Set to 1 if you are installing the glpk module.
+-BUILD_GLPK = 0 
++BUILD_GLPK = 1
+ 
+ # Directory containing libglpk (used only when BUILD_GLPK = 1).
+-GLPK_LIB_DIR = '/usr/lib'
++GLPK_LIB_DIR = local_lib
+ 
+ # Directory containing glpk.h (used only when BUILD_GLPK = 1).
+-GLPK_INC_DIR = '/usr/include'
++GLPK_INC_DIR = local_include
+ 
+ # Set to 1 if you are installing the DSDP module.
+ BUILD_DSDP = 0

@@ -1,0 +1,12 @@
+diff -ru Macaulay2-1.4-r12617/configure.ac Macaulay2-1.4-r12617_patched/configure.ac
+--- Macaulay2-1.4-r12617/configure.ac	2010-10-19 15:00:55.000000000 -0700
++++ Macaulay2-1.4-r12617_patched/configure.ac	2012-10-08 02:47:24.000000000 -0700
+@@ -152,6 +152,8 @@
+   Darwin-8.*) REL=10.4 ; OS=MacOS ;;
+   Darwin-9.*) REL=10.5 ; OS=MacOS ;;
+   Darwin-10.*) REL=10.6 ; OS=MacOS ;;
++  Darwin-11.*) REL=10.7 ; OS=MacOS ;;
++  Darwin-12.*) REL=10.8 ; OS=MacOS ;;
+   Darwin-*) echo "Darwin release number translation needed in configure.ac" >&2 ; exit 1
+ esac
+ 

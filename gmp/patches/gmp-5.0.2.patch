@@ -1,0 +1,28 @@
+diff -rupN gmp-5.0.2/acinclude.m4 gmp-5.0.2new/acinclude.m4
+--- gmp-5.0.2/acinclude.m4	2011-05-08 02:49:29.000000000 -0700
++++ gmp-5.0.2new/acinclude.m4	2011-12-31 00:50:57.000000000 -0800
+@@ -1941,8 +1941,8 @@ X86_PATTERN | x86_64-*-*)
+ esac
+ 
+ cat >conftest.c <<EOF
+-extern const int foo[];		/* Suppresses C++'s suppression of foo */
+-const int foo[] = {1,2,3};
++extern const int foo[[]];		/* Suppresses C++'s suppression of foo */
++const int foo[[]] = {1,2,3};
+ EOF
+ echo "Test program:" >&AC_FD_CC
+ cat conftest.c >&AC_FD_CC
+diff -rupN gmp-5.0.2/configure gmp-5.0.2new/configure
+--- gmp-5.0.2/configure	2011-05-08 02:49:33.000000000 -0700
++++ gmp-5.0.2new/configure	2011-12-31 00:50:53.000000000 -0800
+@@ -26446,8 +26446,8 @@ i?86*-*-* | k[5-8]*-*-* | pentium*-*-* |
+ esac
+ 
+ cat >conftest.c <<EOF
+-extern const int foo;		/* Suppresses C++'s suppression of foo */
+-const int foo = {1,2,3};
++extern const int foo[];		/* Suppresses C++'s suppression of foo */
++const int foo[] = {1,2,3};
+ EOF
+ echo "Test program:" >&5
+ cat conftest.c >&5

@@ -1,0 +1,4 @@
+Go to
+
+http://www.coin-or.org/download/binary/CoinAll/
+

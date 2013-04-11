@@ -1,0 +1,53 @@
+diff -rupN algencan-2.3.7/Makefile alg/Makefile
+--- algencan-2.3.7/Makefile	2012-07-30 21:50:40.000000000 -0700
++++ alg/Makefile	2012-07-30 21:50:22.000000000 -0700
+@@ -6,9 +6,9 @@
+ FC := gfortran
+ CC := gcc
+ 
+-FFLAGS  := -O4 -xf77-cpp-input -fPIC
+-CFLAGS  := -O4 -Df2cFortran -fPIC
+-LDFLAGS := -O4 -shared
++FFLAGS  := -O3 -xf77-cpp-input -fPIC
++CFLAGS  := -O3 -Df2cFortran -fPIC
++LDFLAGS := -O3
+ 
+ # Set variable ALGENCAN with the absolute path of your ALGENCAN installation
+ # directory. The value shown expands to the path of current working directory.
+@@ -26,24 +26,24 @@ INTERFCS := $(notdir $(wildcard $(INTERS
+ # shown are mere examples. Leave them blank if you feel that you will not use
+ # them. None of them is mandatory to use the stand-alone Fortran version of
+ # ALGENCAN.
+-AMPL     := $(HOME)/misc/ampl
++AMPL     := $(HOME)/src/ampl
+ 
+-MASTSIF  := $(HOME)/CUTEr/MastSIF/mastsif
+-SIFDEC   := $(HOME)/CUTEr/SifDec/SifDec.custom.pc.lnx.gfo
+-CUTER    := $(HOME)/CUTEr/CUTEr/cuter-export/CUTEr.custom.pc.lnx.gfo
++MASTSIF  :=
++SIFDEC   :=
++CUTER    :=
+ 
+-PYTHONINC := /usr/include/python2.5
+-PYTHONLIB := /usr/lib/python2.5
++PYTHONINC :=
++PYTHONLIB :=
+ 
+-RINC := /usr/share/R/include
++RINC :=
+ 
+-OCTINC := /usr/include/octave-3.0.0
+-OCTLIB := /usr/lib/octave-3.0.0
++OCTINC :=
++OCTLIB :=
+ 
+-JAVAINC := /usr/lib/jvm/java-6-sun-1.6.0.16/include
++JAVAINC :=
+ 
+-TCLINC := /usr/include/tcl8.5
+-TCLLIB := /usr/lib
++TCLINC :=
++TCLLIB :=
+ 
+ # Stop your modifications here.
+ 
