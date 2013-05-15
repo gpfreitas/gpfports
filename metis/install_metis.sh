@@ -4,12 +4,12 @@
 # ==================================================
 
 # Description: this script will compile and install the METIS library to
-# $INSTALL_DIR
+# $PREFIX
 
 # Instructions: Set the variables in the section 'Hand-Coded Definitions' and
 # run run the script. If you can choose which version of METIS to install by
 # either setting the variables in the section 'Hand-Coded Definitions' or by
-# downloading the source to $INSTALL_DIR/src.
+# downloading the source to $PREFIX/src.
 
 # Conventions: For any macro that refers to a command, use a verb; for all
 # others, use nouns. Print messages telling the user what is going on.
@@ -18,7 +18,7 @@
 
 # 1. Set hand-coded definitions.
 # 2. Set automatic definitions.
-# 3. Fetch the source code and supporting files. Download to $INSTALL_DIR/src.
+# 3. Fetch the source code and supporting files. Download to $PREFIX/src.
 # 4. Check autenticity of the files, if possible.
 # 5. Check integrity of the files, if possible.
 # 6. Configure.
@@ -44,7 +44,7 @@ FETCH="curl -O"
 UNPACK="tar zfx"
 AUTHENTICATE=""
 CHECK_INTEGRITY=""
-INSTALL_DIR="$HOME" 
+PREFIX="${HOME}/local" 
 
 # Possible archs: i386 ppc x86_64 ppc64.
 ARCH="x86_64"
@@ -60,7 +60,7 @@ COMPILER="llvm-gcc"
 #CONFFLAGS="--disable-shared --enable-avx"
 # Hope the following works in Sandy Bridge, which should be avx.
 #CONFFLAGS="--disable-shared --enable-sse2"
-CONFFLAGS="shared=0 prefix=$INSTALL_DIR"
+CONFFLAGS="shared=0 prefix=$PREFIX"
  
 # compiler flags
 COMPFLAGS="-g -O2"
@@ -82,11 +82,11 @@ Beginning Installation.
 =======================
 "
 
-# If $INSTALL_DIR/src does not exist, create it and go there
-if [ ! -d "$INSTALL_DIR/src" ]; then
-	mkdir "$INSTALL_DIR/src"
+# If $PREFIX/src does not exist, create it and go there
+if [ ! -d "$PREFIX/src" ]; then
+	mkdir "$PREFIX/src"
 fi
-cd "$INSTALL_DIR/src"
+cd "$PREFIX/src"
 
 # Download source code if necessary
 if [ ! -f $LIBPREFIX*.tar.gz ]
@@ -138,7 +138,7 @@ echo "
 ---> Configuring $PACKAGENAME...
 "
 
-#env CC="$COMPILER" CFLAGS="-arch $ARCH $COMPFLAGS" LDFLAGS="-arch $ARCH" ./configure $CONFFLAGS --build=$ARCH --prefix=$INSTALL_DIR
+#env CC="$COMPILER" CFLAGS="-arch $ARCH $COMPFLAGS" LDFLAGS="-arch $ARCH" ./configure $CONFFLAGS --build=$ARCH --prefix=$PREFIX
 
 env CC="$COMPILER" CFLAGS="$COMPFLAGS" make config $CONFFLAGS
 
@@ -153,7 +153,7 @@ nice make -j $COMPILETHREADS
 
 if [ $MAKECHECK = 1 ]
 then 
-	echo "\n---> Checking compilation... Check log file at $INSTALL_DIR/src.\n"
+	echo "\n---> Checking compilation... Check log file at $PREFIX/src.\n"
 	make check > log 2>&1 
 else
 	echo "\n---> Not checking compilation.\n"
@@ -164,7 +164,7 @@ fi
 
 
 echo "
----> Installing $PACKAGENAME at $INSTALL_DIR...
+---> Installing $PACKAGENAME at $PREFIX...
 "
 make install
 

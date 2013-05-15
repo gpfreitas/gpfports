@@ -4,12 +4,12 @@
 # ==================================================
 
 # Description: this script will compile and install the Fastest Fourier
-# Transform in the West (FFTW) to $INSTALL_DIR
+# Transform in the West (FFTW) to $PREFIX
 
 # Instructions: Set the variables in the section 'Hand-Coded Definitions' and
 # run run the script. If you can choose which version of the FFTW to install by
 # either setting the variables in the section 'Hand-Coded Definitions' or by
-# downloading the source to $INSTALL_DIR/src.
+# downloading the source to $PREFIX/src.
 
 # Conventions: For any macro that refers to a command, use a verb; for all
 # others, use nouns. Print messages telling the user what is going on.
@@ -18,7 +18,7 @@
 
 # 1. Set hand-coded definitions.
 # 2. Set automatic definitions.
-# 3. Fetch the source code and supporting files. Download to $INSTALL_DIR/src.
+# 3. Fetch the source code and supporting files. Download to $PREFIX/src.
 # 4. Check autenticity of the files, if possible.
 # 5. Check integrity of the files, if possible.
 # 6. Configure.
@@ -35,16 +35,16 @@
 LIBPREFIX="fftw"
 
 # Remote names
-REMOTE_SOURCE="http://www.fftw.org/fftw-3.3.tar.gz"
+REMOTE_SOURCE="http://www.fftw.org/fftw-3.3.3.tar.gz"
 REMOTE_SIGNATURE=""
-REMOTE_CHECKSUM="http://www.fftw.org/fftw-3.3.tar.gz.md5sum"
+REMOTE_CHECKSUM="http://www.fftw.org/fftw-3.3.3.tar.gz.md5sum"
 
 # Local commands and paths
 FETCH="curl -O"
 UNPACK="tar zfx"
 AUTHENTICATE=""
 CHECK_INTEGRITY="openssl md5 -verify"
-INSTALL_DIR="$HOME" 
+PREFIX="${HOME}/local" 
 
 # Possible archs: i386 ppc x86_64 ppc64.
 ARCH="x86_64"
@@ -81,11 +81,11 @@ Beginning Installation.
 =======================
 "
 
-# If $INSTALL_DIR/src does not exist, create it and go there
-if [ ! -d "$INSTALL_DIR/src" ]; then
-	mkdir "$INSTALL_DIR/src"
+# If $PREFIX/src does not exist, create it and go there
+if [ ! -d "$PREFIX/src" ]; then
+	mkdir "$PREFIX/src"
 fi
-cd "$INSTALL_DIR/src"
+cd "$PREFIX/src"
 
 # Download source code if necessary
 if [ ! -f $LIBPREFIX*.tar.gz ]
@@ -137,9 +137,9 @@ echo "
 ---> Configuring $PACKAGENAME...
 "
 
-#env CC="$COMPILER" CFLAGS="-arch $ARCH $COMPFLAGS" LDFLAGS="-arch $ARCH" ./configure $CONFFLAGS --build=$ARCH --prefix=$INSTALL_DIR
+#env CC="$COMPILER" CFLAGS="-arch $ARCH $COMPFLAGS" LDFLAGS="-arch $ARCH" ./configure $CONFFLAGS --build=$ARCH --prefix=$PREFIX
 
-env CC="$COMPILER" CFLAGS="$COMPFLAGS" ./configure $CONFFLAGS --prefix=$INSTALL_DIR
+env CC="$COMPILER" CFLAGS="$COMPFLAGS" ./configure $CONFFLAGS --prefix=$PREFIX
 
 
 # 8. Compile
@@ -152,7 +152,7 @@ nice make -j $COMPILETHREADS
 
 if [ $MAKECHECK = 1 ]
 then 
-	echo "\n---> Checking compilation... Check log file at $INSTALL_DIR/src.\n"
+	echo "\n---> Checking compilation... Check log file at $PREFIX/src.\n"
 	make check > log 2>&1 
 else
 	echo "\n---> Not checking compilation.\n"
@@ -163,7 +163,7 @@ fi
 
 
 echo "
----> Installing $PACKAGENAME at $INSTALL_DIR...
+---> Installing $PACKAGENAME at $PREFIX...
 "
 make install
 

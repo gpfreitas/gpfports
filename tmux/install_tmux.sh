@@ -1,9 +1,12 @@
 #!/usr/bin/env bash
 
-cd ~/src
-curl -L http://sourceforge.net/projects/tmux/files/tmux/tmux-1.6/tmux-1.6.tar.gz | tar zx
-cd tmux-1.6
-./configure --prefix=$HOME CFLAGS="-I$HOME/include" LDFLAGS="-L$HOME/lib"
+PREFIX="${HOME}/local"
+
+cd "$PREFIX"/src
+curl -J -O -L http://sourceforge.net/projects/tmux/files/tmux/tmux-1.8/tmux-1.8.tar.gz
+tar zvfx tmux-1.8.tar.gz
+cd tmux-1.8
+./configure --prefix=$PREFIX CFLAGS="-I$PREFIX/include" LDFLAGS="-L$PREFIX/lib"
 make
 make install
 

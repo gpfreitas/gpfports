@@ -2,7 +2,8 @@
 # -------
 
 # Local machine
-localroot=/Users/guilherme/src
+PREFIX="${HOME}/local"
+localroot="${PREFIX}/src"
 portdir=$PWD
 
 # Remote information

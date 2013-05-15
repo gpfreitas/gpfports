@@ -9,7 +9,7 @@ source 00globals.sh
 function configure_build ()
 {
     cd "$localroot/$srcdir"
-    CC="gcc" MACOSX_DEPLOYMENT_TARGET="10.8" ./configure --prefix=/Users/guilherme
+    CC="gcc" MACOSX_DEPLOYMENT_TARGET="10.8" ./configure --prefix="$PREFIX"
 }
 
 # Main Program

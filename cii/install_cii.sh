@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 
 CC=gcc
+PREFIX="${HOME}/local"
 
-cd ~/src
+cd "$PREFIX/src"
 mkdir cii20 && cd cii20
 curl -O http://cii.googlecode.com/files/cii20.tar.gz
 tar zvfx cii20.tar.gz

@@ -1,10 +1,11 @@
 #!/usr/bin/env bash
 
+PREFIX="${HOME}/local"
 MIRROR='http://ftp.gnu.org/gnu'
 PROGRAM='mpfr'
-VERSION='3.1.1'
-FETCH="/Users/guilherme/bin/curl -C -L -O"
-CFLAGS="--disable-shared --enable-static --build=x86_64-apple-darwin11.4.0 --prefix=$HOME"
+VERSION='3.1.2'
+FETCH='curl'
+CFLAGS="--disable-shared --enable-static --build=x86_64-apple-darwin12.3.0 --prefix=$PREFIX"
 
 cd ~/src \
     && $FETCH $MIRROR/$PROGRAM/$PROGRAM-$VERSION.tar.bz2 \

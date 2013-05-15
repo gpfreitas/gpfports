@@ -16,6 +16,7 @@
 # No dependencies
 # ===============
 
+readline readline
 gfortran gfortran
 asl asl
 pardiso pardiso
@@ -31,6 +32,7 @@ autoconf autoconf
 # One dependency
 # ==============
 
+libevent automake
 python readline
 wget gnutls
 mpfr gmp
@@ -46,14 +48,16 @@ automake autoconf
 # Two dependencies
 # ================
 
-mpc gmp
-mpc mpfr 
-
 dsdp blas
 dsdp lapack
 
 # Three or more dependencies
 # ==========================
+
+mpc gmp
+mpc mpfr 
+mpc valgrind
+
 
 gcc gmp
 gcc mpfr

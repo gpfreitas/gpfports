@@ -2,12 +2,13 @@
 # -------
 
 # Local machine
-localroot=/Users/guilherme/src
+PREFIX="${HOME}/local"
+localroot="${PREFIX}/src"
 portdir=$PWD
 
 # Remote information
 name=gmp
-version=5.0.5 #  Sat Oct  6 01:12:54 PDT 2012 
+version=5.1.1 #  Sat Oct  6 01:12:54 PDT 2012 
 program="$name-$version"
 srcdir="$program"
 patchfile="patches/$program.patch"

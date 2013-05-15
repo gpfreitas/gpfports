@@ -58,7 +58,7 @@ HSL="$PWD/ma57ad.f"
 MAKECHECK=1
 
 CONFFLAGS=--disable-shared \
-  --with-blas="-framework vecLib" --with-lapack="-framework vecLib"
+  --with-blas="-framework Accelerate" --with-lapack="-framework Accelerate"
   #--with-blas=BUILD --with-lapack=BUILD
   F77=gfortran FFLAGS="-fexceptions -m64 -fbackslash" \
   CFLAGS="-fno-common -no-cpp-precomp -fexceptions -arch x86_64 -m64" \

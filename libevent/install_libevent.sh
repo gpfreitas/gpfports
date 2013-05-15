@@ -1,24 +1,13 @@
-# Local variables
-INSTALL_DIR=/Users/guilherme
+#!/usr/bin/env sh
 
-# Go to local sources dir
-cd $INSTALL_DIR/src
+PREFIX="${HOME}/local"
 
-# Fetch
-git clone https://github.com/libevent/libevent.git
-
-# Bring up/checkout a specific stable release
-cd libevent
-git checkout release-2.0.17-stable
-
-# Configure
-./autogen.sh
-./configure --prefix=$INSTALL_DIR --disable-shared
-
-# Compile and check
-make
-make verify
-
-# Install
-make install
+cd "${PREFIX}"/src
+curl -J -L -O 'https://github.com/downloads/libevent/libevent/libevent-2.0.21-stable.tar.gz'
+tar zvfx libevent-2.0.21-stable.tar.gz
+cd "${PREFIX}"/src/libevent-2.0.21-stable
+./configure --prefix="${PREFIX}" --disable-shared \
+  && make \
+  && make verify \
+  && make install
 

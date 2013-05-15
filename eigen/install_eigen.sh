@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
 BUILDDIR="build_"`uname -mrs|tr -d ' '`
-SRCDIR="~/src/eigen"
-PREFIX="$HOME"
+PREFIX="$HOME/local"
+SRCDIR="$PREFIX/src/eigen"
 
-cd ~/src
+cd "$PREFIX/src"
 hg clone https://bitbucket.org/eigen/eigen/ -b 3.1
 cd eigen
 mkdir "$BUILDDIR" && cd "$BUILDDIR"

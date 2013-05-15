@@ -2,12 +2,13 @@
 # -------
 
 # Local machine
-localroot=/Users/guilherme/src
+PREFIX="${HOME}"/local
+localroot="${PREFIX}/src"
 portdir=$PWD
 
 # Remote information
 name=mpfr
-version=3.1.1 # Sun Oct  7 16:22:55 PDT 2012
+version=3.1.2
 program="$name-$version"
 srcdir="$program"
 tarball="$program".tar.bz2
