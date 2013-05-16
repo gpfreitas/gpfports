@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-PREFIX="$HOME/local/test"
+PREFIX="$HOME/local"
 
 test -d "$PREFIX"/src || mkdir "$PREFIX"/src
 test -d "$PREFIX"/src/pv || mkdir "$PREFIX"/src/pv
