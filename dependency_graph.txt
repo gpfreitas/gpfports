@@ -50,6 +50,8 @@ automake autoconf
 
 dsdp blas
 dsdp lapack
+hdf5 szip
+hdf5 zlib
 
 # Three or more dependencies
 # ==========================
