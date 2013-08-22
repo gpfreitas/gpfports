@@ -1,6 +1,6 @@
 Mac OS X usually provides
 
-openssh
+openssh (consider installing another one with readline support for sftp...  MacPorts does it)
 openssl
 c compiler, make, etc. (Developer Tools, XCode, etc.)
 curl / libcurl
