@@ -3,9 +3,17 @@ gpfports: UNIX software installation scripts.
 =============================================
 :Author: Guilherme Freitas <guilherme@gpfreitas.net>
 
+__NOTE (Jan 2016)__: _the installation scripts point to old software versions
+(the scripts are from 2013), and right now they are Mac-only. That said, I
+tried to keep all scripts POSIX-compliant, and thus they should be easy to
+adapt in case you need a very lightweight tool to maintain your own small set
+of custom programs installed from source. If you want a minimal understanding
+of the use-case, take a look at the glpk (and its dependencies) installation
+scripts._
+
 As of April 10th, 2013, these were written only for my Macbook Air running Mac
 OS X 10.8 (Mountain Lion).  To run it anywhere else, you *will* have to edit
-the scripts. Use with auction.
+the scripts. Use with caution.
 
 
 ./dependency_graph.txt
